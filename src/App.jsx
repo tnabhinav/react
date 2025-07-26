@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import JokesPage from "./JokesPage";
 
 function App() {
