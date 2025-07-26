@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; URL=/react/index.html" />
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <script>
+      // GitHub Pages redirect script
+      sessionStorage.redirect = location.pathname + location.search + location.hash;
+      window.location.href = "/react/index.html";
+    </script>
   </head>
-  <body></body>
+  <body>
+    <p>Redirecting to React app…</p>
+  </body>
 </html>
