@@ -1,20 +1,18 @@
-import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import HindiJokes from './HindiJokes';
-import EnglishJokes from './EnglishJokes';
+import React, { useEffect, useState } from "react";
+import Papa from "papaparse";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import JokesPage from "./JokesPage";
 
-export default function App() {
+function App() {
   return (
-    <div style={{ padding: "1rem", fontFamily: "Arial" }}>
-      <h1>Joke Website</h1>
-      <nav style={{ marginBottom: "1rem" }}>
-        <Link to="/hindijokes/best funny joke">Hindi Jokes</Link> |{" "}
-        <Link to="/englishjokes/best funny joke">English Jokes</Link>
-      </nav>
+    <Router basename="/react">
       <Routes>
-        <Route path="/hindijokes/best funny joke" element={<HindiJokes />} />
-        <Route path="/englishjokes/best funny joke" element={<EnglishJokes />} />
+        <Route path="/hindijokes/:slug" element={<JokesPage csvFile="1.csv" />} />
+        <Route path="/englishjokes/:slug" element={<JokesPage csvFile="2.csv" />} />
+        <Route path="*" element={<h2 style={{ textAlign: "center", padding: "2rem" }}>😂 Jokes from CSV</h2>} />
       </Routes>
-    </div>
+    </Router>
   );
 }
+
+export default App;
